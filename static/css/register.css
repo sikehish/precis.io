@@ -1,0 +1,28 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(242, 243, 245);
+  box-sizing: border-box;
+}
+
+h3 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 2rem;
+  border: 2px solid red;
+}
+
+input,
+button {
+  display: block;
+  margin: 20px;
+  p
+  width: 50%;
+  margin: 0 auto;
+}

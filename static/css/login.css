@@ -1,0 +1,10 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(242, 243, 245);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
