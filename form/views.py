@@ -1,17 +1,20 @@
 from django.shortcuts import render,redirect
 from .models import Resume 
+from django.contrib.auth.models import User
 # from django.http import HttpResponse
 
 # Create your views here.
 
 def home(request):
     # print(request)
-    return render(request,'home.html',{'name':'Hisham', 'age' : 17})
+    return render(request,'home.html')
 
 def redirect_view(request):
 
     # for key,value in dict(request.POST).items():
     #     print(key,value)
+    if not User.is_authenticated :
+        return redirect('accounts/login')
 
     name=request.POST['name']
     email=request.POST['email']
@@ -61,7 +64,10 @@ def redirect_view(request):
 
 def form(request):
     # print(request)
-    return render(request,'form.html')
+    if User.is_authenticated :
+        return render(request,'form.html')
+    else: 
+        return redirect('accounts/login')
 
 def resume(request, pk):
     res=Resume.objects.filter(id=pk).values()

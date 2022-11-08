@@ -1,0 +1,10 @@
+<nav>
+  <a href="form/">create resume</a>
+  {% if user.is_authenticated %}
+  <h5>Hi {{user.email}}</h5>
+  <a href="logout">Logout</a>
+  {% else %}
+  <a href="register">Register</a>
+  <a href="login">Login</a>
+  {% endif %}
+</nav>

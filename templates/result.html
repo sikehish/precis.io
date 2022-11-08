@@ -7,7 +7,7 @@
     <title>result</title>
   </head>
   <body>
-    {% for resume in resumes %}
+    {% include "navbar.html" %} {% for resume in resumes %}
     <p>
       <a href="resume/{{resume.id}}">{{resume.title}}</a>
     </p>

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'form',
+    'accounts.apps.AccountsConfig',
     'form.apps.FormConfig',
     'django.contrib.admin',
     'django.contrib.auth',

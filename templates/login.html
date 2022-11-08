@@ -8,6 +8,12 @@
   </head>
   <body>
     {% include "navbar.html" %}
-    <section>Hi welcome to precis.io</section>
+    <form action="login" method="POST">
+      {% csrf_token %}
+      <h3>Login Page</h3>
+      <input type="email" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
   </body>
 </html>
