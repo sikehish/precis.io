@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from django.contrib.auth.models import User
 from datetime import datetime
 
 # Create your models here.
@@ -47,4 +48,5 @@ class Resume(models.Model):
             size=3
         )
 
+    uid=models.ForeignKey(User, default=None,  on_delete=models.CASCADE)
     createdat = models.DateTimeField(default= datetime.now, blank=True)

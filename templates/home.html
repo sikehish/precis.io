@@ -1,13 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>precis.io: Resume Builder</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
   </head>
   <body>
-    {% include "navbar.html" %}
-    <section>Hi welcome to precis.io</section>
+    {% include "navbar.html" %} {% if user.is_authenticated %}
+    <h5>Hi {{user.email}}</h5>
+    {% endif %}
+    <section>Welcome to precis.io</section>
   </body>
 </html>

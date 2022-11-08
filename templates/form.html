@@ -11,6 +11,7 @@
     <script src="{% static 'js/form.js' %}" defer></script>
   </head>
   <body>
+    {% include "navbar.html" %}
     <form class="form" action="redirect" method="POST">
       {% csrf_token %}
 

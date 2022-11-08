@@ -16,6 +16,7 @@ def register(request):
                 return redirect('register')
             else:
                 user=User.objects.create_user(email,email, password1)
+                print(user.id)
                 return redirect('login')
         else:
             messages.info(request,'Password not matching')
@@ -24,11 +25,15 @@ def register(request):
         return render(request,'register.html')
 
 def login(request):
+
+    if request.user.is_authenticated:
+        redirect('')
+
     if request.method=='POST':
         email=request.POST['email']
         password=request.POST['password']
 
-        user=auth.authenticate(email=email, password=password)
+        user=auth.authenticate(username=email, password=password)
         if user is not None :
             auth.login(request,user)
             return redirect('/')

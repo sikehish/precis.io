@@ -42,10 +42,14 @@ def redirect_view(request):
     }
 
     for i in range(3):
-        jobs['employers'].append(request.POST[f"employer-{i+1}"].strip())
-        jobs['titles'].append(request.POST[f"job-title-{i+1}"].strip())
-        jobs['end'].append(request.POST[f"end-work-{i+1}"].strip())
-        jobs['start'].append(request.POST[f"start-work-{i+1}"].strip())
+       if len(request.POST[f"employer-{i+1}"].strip())!=0: 
+            jobs['employers'].append(request.POST[f"employer-{i+1}"].strip())
+       if len(request.POST[f"job-title-{i+1}"].strip())!=0: 
+            jobs['titles'].append(request.POST[f"job-title-{i+1}"].strip())
+       if len(request.POST[f"end-work-{i+1}"].strip())!=0:
+            jobs['end'].append(request.POST[f"end-work-{i+1}"].strip())
+       if len(request.POST[f"start-work-{i+1}"].strip())!=0: 
+            jobs['start'].append(request.POST[f"start-work-{i+1}"].strip())
 
     for i in range(3):
         edu['degrees'].append(request.POST[f'degree-{i+1}'])
@@ -57,7 +61,7 @@ def redirect_view(request):
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
     resume=Resume.objects.create(name=name, email=email,phone=phone,title=title, profile=profile,skills=skills,
     website=website,location=location, employers=jobs['employers'], titles=jobs['titles'],job_start=jobs['start'],job_end=jobs['end'],
-     degrees=edu['degrees'], institutions=edu['institutions'], edu_start=edu['start'],edu_end=edu['end']);
+     degrees=edu['degrees'], institutions=edu['institutions'], edu_start=edu['start'],edu_end=edu['end'], uid=request.user);
     response = redirect('resumes')
     return response
     
@@ -73,7 +77,7 @@ def resume(request, pk):
     res=Resume.objects.filter(id=pk).values()
     print(res)
     return render(request,'resume.html', {
-        'res': res
+        'resume': res
     })
     
 
@@ -88,7 +92,7 @@ def resumes(request):
     # title=request.POST['title']
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
 
-    resumes= Resume.objects.all();
+    resumes= Resume.objects.filter(uid=request.user);
     # print(resume)
     # print(resumes[0].id)
 

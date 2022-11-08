@@ -1,21 +1,167 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>result</title>
+    <link rel="stylesheet" href="{% static 'css/resume.css' %}" />
+    <title>pop</title>
   </head>
   <body>
-    {% for resume in res %}
-    <p>
-    <h1>{{resume.name}}</h1>
-    <p>{{resume.email}}</p>
-    <p>{{resume.phone}}</p>
-    <span>Created at : {{resume.createdat}}</span>
-  </p>
-  {% endfor %}
-    <!-- <h1>{{res1.email}}</h1>
-    <h1>{{res1.email}}</h1> -->
+    {% for resume_info in resume %}
+    <div class="resume">
+      {% if resume_info.name %}
+
+      <h1>{{resume_info.name}}</h1>
+
+      {% endif %} {% if resume_info.email %}
+
+      <p>{{resume_info.email}}</p>
+
+      {% endif %} {% if resume_info.phone %}
+
+      <p>{{resume_info.phone}}</p>
+
+      {% endif %} {% if resume_info.website %}
+
+      <p>
+        🔗
+        <a href="{{resume_info.website}}" target="_blank"
+          >{{resume_info.website}}</a
+        >
+      </p>
+
+      {% endif %} {% if resume_info.location %}
+
+      <p>📍 {{resume_info.location}}</p>
+
+      {% endif %}
+
+      <div class="line-break"></div>
+
+      {% if resume_info.profile %}
+
+      <div class="resume-group">
+        <div class="left-col"><p>ABOUT ME</p></div>
+
+        <div class="right-col">
+          <p>{{resume_info.profile }}</p>
+        </div>
+      </div>
+
+      {% endif %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>EDUCATION</p>
+        </div>
+
+        <div class="right-col">
+          <p></p>
+        </div>
+      </div>
+
+      {% if resume_info.edu_start.0 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.edu_start.0}} to {{resume_info.edu_end.0}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.degrees.0}}, {{resume_info.institutions.0}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.edu_start.1 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.edu_start.1}} to {{resume_info.edu_end.1}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.degrees.1}}, {{resume_info.institutions.1}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.edu_start.2 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.edu_start.2}} to {{resume_info.edu_end.2}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.degrees.2}}, {{resume_info.institutions.2}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.titles|length > 0 %}
+      <div class="resume-group">
+        <div class="left-col">
+          <p>WORK EXPERIENCE</p>
+        </div>
+
+        <div class="right-col">
+          <p></p>
+        </div>
+      </div>
+      {% endif %} {% if resume_info.job_start.0 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.job_start.0}} to {{resume_info.job_end.0}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.titles.0}} at {{resume_info.employers.0}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.job_start.1 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.job_start.1}} to {{resume_info.job_end.1}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.titles.1}} at {{resume_info.employers.1}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.job_start.2 %}
+
+      <div class="resume-group">
+        <div class="left-col">
+          <p>{{resume_info.job_start.2}} to {{resume_info.job_end.2}}</p>
+        </div>
+
+        <div class="right-col">
+          <p>{{resume_info.titles.2}} at {{resume_info.employers.2}}</p>
+        </div>
+      </div>
+
+      {% endif %} {% if resume_info.skills|length > 0 %}
+      <div class="resume-group">
+        <div class="left-col">
+          <p>SKILLS</p>
+        </div>
+
+        <div class="right-col">
+          {% for skill in resume_info.skills %}
+          <p>{{skill}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="instructions">
+      Ctrl + P and "Save As PDF" to make a copy of this resume
+    </div>
+    {% endfor %}
   </body>
 </html>
