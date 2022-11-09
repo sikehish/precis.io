@@ -1,28 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap");
+
 body {
   padding: 0;
   margin: 0;
   background-color: rgb(242, 243, 245);
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 h3 {
   text-align: center;
+  font-size: larger;
 }
 
 form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 50%;
+  max-width: 20%;
   margin-top: 2rem;
-  border: 2px solid red;
+  background-color: rgb(218, 222, 230);
+  padding: 1rem;
+  /* border: 2px solid red; */
 }
 
-input,
-button {
+button,
+span {
   display: block;
-  margin: 20px;
-  p
-  width: 50%;
-  margin: 0 auto;
+  /* margin: 8px auto; */
+  margin-top: 1rem;
+}
+
+button {
+  margin-top: 2rem;
+}
+
+.error {
+  font-size: smaller;
+  font-weight: bold;
+  text-align: center;
+  color: red;
 }

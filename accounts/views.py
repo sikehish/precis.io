@@ -10,16 +10,15 @@ def register(request):
         password1=request.POST['password1']
         password2=request.POST['password2']
         if password1==password2 :
-            print('YEEEEEEEEEEEEEEEEEEET', password1,password2)
             if User.objects.filter(email=email).exists() :
-                messages.info(request,f'Account {email} already exists :(')
+                messages.error(request,f'Account already exists')
                 return redirect('register')
             else:
                 user=User.objects.create_user(email,email, password1)
                 print(user.id)
                 return redirect('login')
         else:
-            messages.info(request,'Password not matching')
+            messages.error(request,'Password not matching')
             return redirect('register')
     else:
         return render(request,'register.html')
@@ -38,7 +37,7 @@ def login(request):
             auth.login(request,user)
             return redirect('/')
         else:
-            messages.info(request,'Invalid credentials')
+            messages.error(request,'Invalid credentials')
             return redirect('login')
     else:
         return render(request,'login.html')

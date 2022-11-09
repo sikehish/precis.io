@@ -15,10 +15,11 @@
     <form class="form" action="redirect" method="POST">
       {% csrf_token %}
 
-      <label for="title">Title</label>
-      <input type="text" id="title" name="title" required />
+      <h2 class="create-resume">Create Resume</h2>
 
       <section class="intro">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required />
         <label for="name">Name</label>
         <input type="text" id="name" name="name" />
 
@@ -55,7 +56,7 @@
 
       <!-- Education, courses, skills, acheivments, work experience -->
 
-      <section className="education">
+      <section class="education">
         <h3>Enter your educational experience</h3>
 
         <div>
@@ -102,13 +103,13 @@
           <label for="institution-3">Institution name</label>
           <input type="text" id="institution-3" name="institution-3" />
 
-          <label for="degree-3">Degree</label>
+          <label for="degree-3">Degree/Qualification</label>
           <input type="text" id="degree-3" name="degree-3" />
         </div>
       </section>
 
-      <section className="work">
-        <h3>Enter your recent work experience</h3>
+      <section class="work">
+        <h3>Enter your work experience</h3>
 
         <div>
           <h5>Enter your recent work experience</h5>

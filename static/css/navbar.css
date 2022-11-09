@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap");
 
-a {
+.nav-links a,
+.logo a {
   text-decoration: none;
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
   /* display: block; */
 }
 
@@ -29,8 +32,8 @@ nav {
   text-align: center;
 }
 
-.precis {
+.logo a {
   font-family: "lobster", sans-serif;
-  font-weight: bolder;
+  /* font-weight: bold; */
   font-size: xx-large;
 }

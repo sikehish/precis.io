@@ -100,3 +100,9 @@ def resumes(request):
         'resumes': resumes
     })
 
+
+def delete(request, id,):
+    resume = Resume.objects.get(id=id)
+    print(resume)
+    resume.delete();
+    return redirect('resumes')

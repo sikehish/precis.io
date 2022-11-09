@@ -12,15 +12,22 @@
     {% include "navbar.html" %}
     <form action="register" method="POST">
       {% csrf_token %}
-      <h3>Sign Up page</h3>
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password1" placeholder="Password" />
-      <input type="password" name="password2" placeholder="Confirm Password" />
+      <h3>Sign Up</h3>
+      <span>Email</span>
+      <input type="email" name="email" placeholder="Email" required />
+      <span>Password</span>
+      <input type="password" name="password1" placeholder="Password" required />
+      <span>Confirm Password</span>
+      <input
+        type="password"
+        name="password2"
+        placeholder="Confirm Password"
+        required
+      />
       <button type="submit">Register</button>
+      {% if messages %} {% for message in messages %}
+      <p class="{{message.tags}}">{{message}}</p>
+      {% endfor %} {% endif %}
     </form>
-
-    {% if messages %}
-    <div>{% for message in messages %} {{message}} {% endfor %}</div>
-    {% endif %}
   </body>
 </html>

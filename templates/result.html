@@ -1,17 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/result.css' %}" />
     <title>Your resumes</title>
   </head>
   <body>
-    {% include "navbar.html" %} {% for resume in resumes %}
-    <p>
-      <a href="resume/{{resume.id}}">{{resume.title}}</a>
-    </p>
-    {% endfor %}
+    {% include "navbar.html" %}
+    <div class="result">
+      <h3>Your Resumes 👇</h3>
+      {% for resume in resumes %}
+      <div>
+        🔗<a class="result-link" href="resume/{{resume.id}}">
+          {{resume.title}}</a
+        >
+        <a class="bin" href="delete/{{ resume.id }}">🗑️</a>
+      </div>
+      {% empty %} You haven't created any resumes {% endfor %}
+    </div>
     <!-- <h1>{{res1.email}}</h1>
     <h1>{{res1.email}}</h1> -->
   </body>

@@ -5,20 +5,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
     <title>Document</title>
   </head>
   <body>
     {% include "navbar.html" %}
     <form action="login" method="POST">
       {% csrf_token %}
-      <h3>Login Page</h3>
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
+      <h3>Login</h3>
+      <span>Email</span>
+      <input type="email" name="email" placeholder="Email" required />
+      <span>Password</span>
+      <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Login</button>
+      {% if messages %} {% for message in messages %}
+      <p class="{{message.tags}}">{{message}}</p>
+      {% endfor %} {% endif %}
     </form>
-    {% if messages %}
-    <div>{% for message in messages %} {{message}} {% endfor %}</div>
-    {% endif %}
   </body>
 </html>

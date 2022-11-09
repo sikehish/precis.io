@@ -1,8 +1,59 @@
-.form {
-  background-color: white;
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(242, 243, 245);
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .intro {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid black;
+}
+
+.education {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid black;
+}
+
+.work {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid black;
+}
+
+.form {
+  margin: 2rem;
+  /* border: 2px solid red; */
+  padding: 1rem;
+  /* width: 70%; */
+}
+
+.form > div {
+  text-align: center;
+}
+
+.create-resume {
+  text-align: center;
+}
+
+input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+label {
+  margin-top: 1rem;
+}
+
+.education input {
+  margin-right: 10px;
+}
+
+.work input {
+  margin-right: 10px;
 }
