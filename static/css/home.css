@@ -24,3 +24,20 @@ img {
   max-width: 300px;
   height: auto;
 }
+
+/* ------------- */
+
+.part-2 {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.part-2 img {
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
