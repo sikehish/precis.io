@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/form.css' %}" />
-    <title>form</title>
+    <title>Create Resume</title>
     <script src="{% static 'js/form.js' %}" defer></script>
   </head>
   <body>
@@ -18,39 +18,41 @@
       <h2 class="create-resume">Create Resume</h2>
 
       <section class="intro">
-        <label for="title">Title</label>
+        <label for="title">Title *</label>
         <input type="text" id="title" name="title" required />
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required />
 
-        <label for="phone"> Phone </label>
+        <label for="phone"> Phone * </label>
         <input
           type="tel"
           maxlength="12"
           minlength="8"
           id="phone"
           name="phone"
+          required
         />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
 
-        <label for="website"> Website/Link </label>
+        <label for="website">Website/Link </label>
         <input type="url" id="website" name="website" />
 
-        <label for="location"> Location </label>
-        <input type="text" id="location" name="location" />
+        <label for="location">Location *</label>
+        <input type="text" id="location" name="location" required />
 
-        <label for="job-profile"> Current job profile </label>
+        <label for="job-profile">Current job profile</label>
         <input type="text" id="job-profile" name="job-profile" />
 
-        <label for="profile"> Profile:</label>
+        <label for="profile"> Profile *</label>
         <textarea
           rows="10"
           cols="30"
           id="profile"
           name="profile"
           placeholder="Describe yourself here..."
+          required
         ></textarea>
       </section>
 
@@ -60,19 +62,29 @@
         <h3>Enter your educational experience</h3>
 
         <div>
-          <h5>Latest educational background</h5>
+          <h5>Latest educational background *</h5>
 
           <label for="start-education-1">Start year</label>
-          <input type="text" id="start-education-1" name="start-education-1" />
+          <input
+            type="text"
+            id="start-education-1"
+            name="start-education-1"
+            required
+          />
 
           <label for="end-education-1">End year</label>
-          <input type="text" id="end-education-1" name="end-education-1" />
+          <input
+            type="text"
+            id="end-education-1"
+            name="end-education-1"
+            required
+          />
 
           <label for="institution-1">Institution name</label>
-          <input type="text" id="institution-1" name="institution-1" />
+          <input type="text" id="institution-1" name="institution-1" required />
 
           <label for="degree-1">Degree/Qualification</label>
-          <input type="text" id="degree-1" name="degree-1" />
+          <input type="text" id="degree-1" name="degree-1" required />
         </div>
 
         <div>
@@ -161,13 +173,14 @@
       </section>
 
       <section className="extra">
-        <h3>Enter your skills</h3>
+        <h3>Enter your skills *</h3>
         <textarea
           name="skills"
           cols="30"
           rows="10"
           id="skills"
           placeholder=""
+          required
         ></textarea>
       </section>
 

@@ -24,6 +24,7 @@ def redirect_view(request):
     website=request.POST['website']
     profile=request.POST['profile']
     location=request.POST['location']
+    job_profile=request.POST['job-profile']
     
     skills=request.POST['skills'].split()
 
@@ -59,7 +60,7 @@ def redirect_view(request):
 
     print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
-    resume=Resume.objects.create(name=name, email=email,phone=phone,title=title, profile=profile,skills=skills,
+    resume=Resume.objects.create(name=name, email=email,phone=phone,title=title, profile=profile, job_profile=job_profile,skills=skills,
     website=website,location=location, employers=jobs['employers'], titles=jobs['titles'],job_start=jobs['start'],job_end=jobs['end'],
      degrees=edu['degrees'], institutions=edu['institutions'], edu_start=edu['start'],edu_end=edu['end'], uid=request.user);
     response = redirect('resumes')
@@ -101,8 +102,10 @@ def resumes(request):
     })
 
 
-def delete(request, id,):
+def delete(request, id):
     resume = Resume.objects.get(id=id)
-    print(resume)
-    resume.delete();
-    return redirect('resumes')
+    if resume.uid == request.user:
+        resume.delete();
+        return redirect('resumes')
+    else:
+        return redirect('login')

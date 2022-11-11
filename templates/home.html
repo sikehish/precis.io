@@ -13,21 +13,30 @@
     <section class="part-1">
       <div class="intro">
         {% if user.email %}
-        <h5>Hi {{user.email}}</h5>
+        <h3>Hi {{user.email}}</h3>
         {% endif %}
-        <h3>Welcome to precis.io</h3>
+        <h2>Welcome to precis.io</h2>
         <p>Your go to place for creating resumes on the fly!</p>
+        {% if user.email %}
+        <button><a href="{% url 'form' %}">CREATE RESUME</a></button>
+        {% else %}
+        <button><a href="{% url 'login' %}">CREATE RESUME</a></button>
+        {% endif %}
       </div>
       <img src="{% static 'img/homeimg.png' %}" alt="" />
     </section>
     <section class="part-2">
+      <img src="{% static 'img/whyuse.png' %}" alt="" />
       <div>
         <p>✔️ Create a resume in minutes</p>
         <p>✔️ Fast and Easy to Use</p>
         <p>✔️ Download your resume as PDF</p>
         <p>✔️ Absolutely free</p>
       </div>
-      <img src="{% static 'img/whyuse.png' %}" alt="" />
+    </section>
+    <section class="part-3">
+      <h4>Trusted by students globally!</h4>
+      <a href="{% url 'home' %}" class="precis">precis.io</h3>
     </section>
   </body>
 </html>

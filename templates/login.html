@@ -5,8 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <title>Document</title>
+    <script defer src="{% static 'js/login.js' %}"></script>
+    <title>Log In</title>
   </head>
   <body>
     {% include "navbar.html" %}
@@ -14,9 +19,16 @@
       {% csrf_token %}
       <h3>Login</h3>
       <span>Email</span>
-      <input type="email" name="email" placeholder="Email" required />
+      <input type="email" name="email" required />
       <span>Password</span>
-      <input type="password" name="password" placeholder="Password" required />
+      <!-- <div> -->
+      <input type="password" name="password" id="id_password" required />
+      <!-- <i
+          class="far fa-eye"
+          id="togglePassword"
+          style="margin-left: -30px; cursor: pointer"
+        ></i> -->
+      <!-- </div> -->
       <button type="submit">Login</button>
       {% if messages %} {% for message in messages %}
       <p class="{{message.tags}}">{{message}}</p>

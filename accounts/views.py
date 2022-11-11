@@ -4,13 +4,20 @@ from django.contrib.auth.models import auth, User
 
 # Create your views here.
 
+
 def register(request):
+
+    MIN_LENGTH=8;
+
     if request.method=='POST':
         email=request.POST['email']
         password1=request.POST['password1']
         password2=request.POST['password2']
         if password1==password2 :
-            if User.objects.filter(email=email).exists() :
+            if len(password1) < MIN_LENGTH:  
+                messages.error(request,'Password too short')
+                return redirect('register')
+            elif User.objects.filter(email=email).exists() :
                 messages.error(request,f'Account already exists')
                 return redirect('register')
             else:

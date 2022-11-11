@@ -4,9 +4,14 @@
 .nav-links a,
 .logo a {
   text-decoration: none;
-  color: #ffffff;
+  color: rgb(242, 243, 245);
   font-family: "Poppins", sans-serif;
   /* display: block; */
+}
+
+.nav-links a:hover,
+.logo a:hover {
+  color: white;
 }
 
 nav {

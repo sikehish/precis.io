@@ -36,6 +36,10 @@ button {
   margin-bottom: 1rem;
 }
 
+/* #id_password {
+  background-color: black;
+} */
+
 .error {
   font-size: smaller;
   font-weight: bold;

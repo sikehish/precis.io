@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <title>Document</title>
+    <title>Sign Up</title>
   </head>
   <body>
+    <div>
     {% include "navbar.html" %}
     <form action="register" method="POST">
       {% csrf_token %}
       <h3>Sign Up</h3>
       <span>Email</span>
-      <input type="email" name="email" placeholder="Email" required />
+      <input type="email" name="email" required />
       <span>Password</span>
-      <input type="password" name="password1" placeholder="Password" required />
+      <input type="password" name="password1" required />
       <span>Confirm Password</span>
       <input
         type="password"
         name="password2"
-        placeholder="Confirm Password"
         required
       />
       <button type="submit">Register</button>

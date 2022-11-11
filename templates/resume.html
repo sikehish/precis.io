@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/resume.css' %}" />
-    <title>pop</title>
+    <title>Resume</title>
   </head>
   <body>
     {% for resume_info in resume %}
@@ -15,13 +15,17 @@
 
       <h1>{{resume_info.name}}</h1>
 
+      {% endif %} {% if resume_info.job_profile %}
+
+      <p>💼 {{resume_info.job_profile}}</p>
+
       {% endif %} {% if resume_info.email %}
 
-      <p>{{resume_info.email}}</p>
+      <p>📧 {{resume_info.email}}</p>
 
       {% endif %} {% if resume_info.phone %}
 
-      <p>{{resume_info.phone}}</p>
+      <p>📞 {{resume_info.phone}}</p>
 
       {% endif %} {% if resume_info.website %}
 
