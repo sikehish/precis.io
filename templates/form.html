@@ -12,16 +12,32 @@
   </head>
   <body>
     {% include "navbar.html" %}
-    <form class="form" action="redirect" method="POST">
+    {% if edit %}
+    <form class="form" action='redirect-edit/{{resume.id}}' method="POST">
+      {% else %}
+      <form class="form" action='redirect' method="POST">
+    {% endif %}
       {% csrf_token %}
 
       <h2 class="create-resume">Create Resume</h2>
 
       <section class="intro">
         <label for="title">Title *</label>
-        <input type="text" id="title" name="title" required />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={{resume.title}}
+          required
+        />
         <label for="name">Name *</label>
-        <input type="text" id="name" name="name" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={{resume.name}}
+          required
+        />
 
         <label for="phone"> Phone * </label>
         <input
@@ -30,20 +46,43 @@
           minlength="8"
           id="phone"
           name="phone"
+          value={{resume.phone}}
           required
         />
 
         <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={{resume.email}}
+          required
+        />
 
         <label for="website">Website/Link </label>
-        <input type="url" id="website" name="website" />
+        <input
+          type="url"
+          id="website"
+          name="website"
+          value={{resume.website}}
+        />
 
         <label for="location">Location *</label>
-        <input type="text" id="location" name="location" required />
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value={{resume.location}}
+          required
+        />
 
         <label for="job-profile">Current job profile</label>
-        <input type="text" id="job-profile" name="job-profile" />
+        <input
+          type="text"
+          id="job-profile"
+          name="job-profile"
+          value={{resume.job_profile}}
+        />
 
         <label for="profile"> Profile *</label>
         <textarea
@@ -53,7 +92,7 @@
           name="profile"
           placeholder="Describe yourself here..."
           required
-        ></textarea>
+        >{{resume.profile}}</textarea>
       </section>
 
       <!-- Education, courses, skills, acheivments, work experience -->
@@ -69,6 +108,7 @@
             type="text"
             id="start-education-1"
             name="start-education-1"
+            value={{resume.edu_start.0}}
             required
           />
 
@@ -77,46 +117,99 @@
             type="text"
             id="end-education-1"
             name="end-education-1"
+            value={{resume.edu_end.0}}
             required
           />
 
           <label for="institution-1">Institution name</label>
-          <input type="text" id="institution-1" name="institution-1" required />
+          <input
+            type="text"
+            id="institution-1"
+            name="institution-1"
+            value={{resume.institutions.0}}
+            required
+          />
 
           <label for="degree-1">Degree/Qualification</label>
-          <input type="text" id="degree-1" name="degree-1" required />
+          <input
+            type="text"
+            id="degree-1"
+            name="degree-1"
+            value={{resume.degrees.0}}
+            required
+          />
         </div>
 
         <div>
           <h5>Past educational background</h5>
 
           <label for="start-education-2">Start year</label>
-          <input type="text" id="start-education-2" name="start-education-2" />
+          <input
+            type="text"
+            id="start-education-2"
+            name="start-education-2"
+            value={{resume.edu_start.1}}
+          />
 
           <label for="end-education-2">End year</label>
-          <input type="text" id="end-education-2" name="end-education-2" />
+          <input
+            type="text"
+            id="end-education-2"
+            name="end-education-2"
+            value={{resume.edu_end.1}}
+          />
 
           <label for="institution-2">Institution name</label>
-          <input type="text" id="institution-2" name="institution-2" />
+          <input
+            type="text"
+            id="institution-2"
+            name="institution-2"
+            value={{resume.institutions.1}}
+          />
 
           <label for="degree-2">Degree/Qualification</label>
-          <input type="text" id="degree-2" name="degree-2" />
+          <input
+            type="text"
+            id="degree-2"
+            name="degree-2"
+            value={{resume.degrees.1}}
+          />
         </div>
 
         <div>
           <h5>Another past educational background</h5>
 
           <label for="start-education-3">Start year</label>
-          <input type="text" id="start-education-3" name="start-education-3" />
+          <input
+            type="text"
+            id="start-education-3"
+            name="start-education-3"
+            value={{resume.edu_start.2}}
+          />
 
           <label for="end-education-3">End year</label>
-          <input type="text" id="end-education-3" name="end-education-3" />
+          <input
+            type="text"
+            id="end-education-3"
+            name="end-education-3"
+            value={{resume.edu_end.2}}
+          />
 
           <label for="institution-3">Institution name</label>
-          <input type="text" id="institution-3" name="institution-3" />
+          <input
+            type="text"
+            id="institution-3"
+            name="institution-3"
+            value={{resume.institutions.2}}
+          />
 
           <label for="degree-3">Degree/Qualification</label>
-          <input type="text" id="degree-3" name="degree-3" />
+          <input
+            type="text"
+            id="degree-3"
+            name="degree-3"
+            value={{resume.degrees.2}}
+          />
         </div>
       </section>
 
@@ -127,48 +220,108 @@
           <h5>Enter your recent work experience</h5>
 
           <label for="start-work-1">Start year</label>
-          <input type="text" id="start-work-1" name="start-work-1" />
+          <input
+            type="text"
+            id="start-work-1"
+            name="start-work-1"
+            value={{resume.job_start.0}}
+          />
 
           <label for="end-work-1">End year</label>
-          <input type="text" id="end-work-1" name="end-work-1" />
+          <input
+            type="text"
+            id="end-work-1"
+            name="end-work-1"
+            value={{resume.job_end.0}}
+          />
 
           <label for="job-title-1">Job Title</label>
-          <input type="text" id="job-title-1" name="job-title-1" />
+          <input
+            type="text"
+            id="job-title-1"
+            name="job-title-1"
+            value={{resume.titles.0}}
+          />
 
           <label for="employer-1">Employer/Company name</label>
-          <input type="text" id="employer-1" name="employer-1" />
+          <input
+            type="text"
+            id="employer-1"
+            name="employer-1"
+            value={{resume.employers.0}}
+          />
         </div>
 
         <div>
           <h5>Enter your past work experience</h5>
 
           <label for="start-work-2">Start year</label>
-          <input type="text" id="start-work-2" name="start-work-2" />
+          <input
+            type="text"
+            id="start-work-2"
+            name="start-work-2"
+            value={{resume.job_start.1}}
+          />
 
           <label for="end-work-2">End year</label>
-          <input type="text" id="end-work-2" name="end-work-2" />
+          <input
+            type="text"
+            id="end-work-2"
+            name="end-work-2"
+            value={{resume.job_end.1}}
+          />
 
           <label for="job-title-2">Job Title</label>
-          <input type="text" id="job-title-2" name="job-title-2" />
+          <input
+            type="text"
+            id="job-title-2"
+            name="job-title-2"
+            value={{resume.titles.1}}
+          />
 
           <label for="employer-2">Employer/Company name</label>
-          <input type="text" id="employer-2" name="employer-2" />
+          <input
+            type="text"
+            id="employer-2"
+            name="employer-2"
+            value={{resume.employers.1}}
+          />
         </div>
 
         <div>
           <h5>Enter another past work experience</h5>
 
           <label for="start-work-3">Start year</label>
-          <input type="text" id="start-work-3" name="start-work-3" />
+          <input
+            type="text"
+            id="start-work-3"
+            name="start-work-3"
+            value={{resume.job_start.2}}
+          />
 
           <label for="end-work-3">End year</label>
-          <input type="text" id="end-work-3" name="end-work-3" />
+          <input
+            type="text"
+            id="end-work-3"
+            name="end-work-3"
+            value={{resume.job_end.2}}
+          />
 
           <label for="job-title-3">Job Title</label>
-          <input type="text" id="job-title-3" name="job-title-3" />
+          <input
+            type="text"
+            id="job-title-3"
+            name="job-title-3"
+            value={{resume.titles.2}}
+          />
 
           <label for="employer-3">Employer/Company name</label>
-          <input type="text" id="employer-3" name="employer-3" />
+          <input
+            type="text"
+            id="employer-3"
+            name="employer-3"
+            value={{resume.employers.2}}
+          />
         </div>
       </section>
 
@@ -181,10 +334,13 @@
           id="skills"
           placeholder=""
           required
-        ></textarea>
+        >{% for skill in resume.skills %}{{skill}}&#10;{% endfor %}
+</textarea>
       </section>
 
-      <button type="submit">Create Resume</button>
+      <button type="submit">
+        {{edit|yesno:'Edit Resume,Create Resume'}}
+      </button>
     </form>
   </body>
 </html>
