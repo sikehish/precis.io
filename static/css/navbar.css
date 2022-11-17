@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 .nav-links a,
 .logo a {
   text-decoration: none;
@@ -11,7 +15,7 @@
 
 .nav-links a:hover,
 .logo a:hover {
-  color: white;
+  color: #ffff19;
 }
 
 nav {
@@ -41,4 +45,12 @@ nav {
   font-family: "lobster", sans-serif;
   /* font-weight: bold; */
   font-size: xx-large;
+}
+
+a.user {
+  color: #ffff19;
+}
+
+a.user:hover {
+  color: #00eeff;
 }

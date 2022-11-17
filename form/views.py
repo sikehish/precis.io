@@ -68,14 +68,14 @@ def redirect_view(request):
     
 
 def form(request,pk=''):
-    print('pk:',pk)
     
     if User.is_authenticated :
         if pk.strip()=='':
-            return render(request,'form.html',{
+            return render(request,'formedit.html',{
                 'edit':False
             })
         else:
+            print('pk:',pk)
             res=Resume.objects.get(id=pk)
             # print('KYAA REEE',res);
             if res.uid != request.user:
@@ -83,7 +83,7 @@ def form(request,pk=''):
             else:
                 el='\n'.join(res.skills)
                 print(el);
-                return render(request,'form.html', {
+                return render(request,'formedit.html', {
                     'resume': res,
                     'edit':True
         })
@@ -179,12 +179,14 @@ def editredirect(request,id):
     res.job_profile=job_profile
     res.skills=skills
 
+    print(jobs['end'], jobs['start'])
+
     res.website=website
     res.location=location
     res.employers=jobs['employers']
     res.titles=jobs['titles']
     res.job_start=jobs['start']
-    res.job_end=jobs['end'],
+    res.job_end=jobs['end']
     res.degrees=edu['degrees']
     res.institutions=edu['institutions']
     res.edu_start=edu['start']
