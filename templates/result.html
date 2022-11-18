@@ -11,8 +11,14 @@
   <body>
     {% include "navbar.html" %}
     <div class="result">
+      {% if resumes|length == 0 %}
+      <div class="start">
+        <h1>Your<br />professional<br />journey<br />starts<br />here.</h1>
+        <button><a href="{% url 'form' %}">CREATE RESUME</a></button>
+      </div>
+      {% else %}
       <h3>Your Resumes 👇</h3>
-      {% for resume in resumes %}
+      {% endif %} {% for resume in resumes %}
       <div>
         🔗<a class="result-link" href="resume/{{resume.id}}">
           {{resume.title}}</a
@@ -25,7 +31,7 @@
         >
         <a class="bin" href="form/{{ resume.id }}">✏️</a>
       </div>
-      {% empty %} You haven't created any resumes {% endfor %}
+      {% endfor %}
     </div>
     <!-- <h1>{{res1.email}}</h1>
     <h1>{{res1.email}}</h1> -->

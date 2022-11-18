@@ -68,8 +68,12 @@ def redirect_view(request):
     
 
 def form(request,pk=''):
+    print(request.user);
+
+    # if not User.is_authenticated :
+    #     return redirect('accounts/login')
     
-    if User.is_authenticated :
+    if request.user.is_authenticated :
         if pk.strip()=='':
             return render(request,'formedit.html',{
                 'edit':False
@@ -77,7 +81,6 @@ def form(request,pk=''):
         else:
             print('pk:',pk)
             res=Resume.objects.get(id=pk)
-            # print('KYAA REEE',res);
             if res.uid != request.user:
                 return redirect('')
             else:
@@ -88,10 +91,11 @@ def form(request,pk=''):
                     'edit':True
         })
     else: 
-        return redirect('accounts/login')
+        return redirect('login')
 
 def resume(request, pk):
     res=Resume.objects.filter(id=pk).values()
+    if len(res)==0 : return redirect('home')
     # print(res)
     # print(Resume.objects.filter(id=pk))
     return render(request,'resume.html', {
@@ -100,7 +104,7 @@ def resume(request, pk):
     
 
 def resumes(request):
-    # print()
+    print(request.user)
 
     # Creating a row in the database (the conventional way)
     # print(request)
@@ -109,6 +113,7 @@ def resumes(request):
     # phone=request.POST['phone']
     # title=request.POST['title']
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
+    if not request.user.is_authenticated : return redirect('login')
 
     resumes= Resume.objects.filter(uid=request.user);
     # print(resume)

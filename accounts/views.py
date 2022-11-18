@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import auth, User
+from django.http import HttpResponse
 
 # Create your views here.
 
