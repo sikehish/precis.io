@@ -1,6 +1,7 @@
 /resumeBuilder/settings.py
 /rootkey.txt
 
+/media
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

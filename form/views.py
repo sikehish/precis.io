@@ -65,8 +65,7 @@ def redirect_view(request):
         edu['end'].append(request.POST[f'end-education-{i+1}'])
         edu['start'].append(request.POST[f'start-education-{i+1}'])
 
-    if len(request.FILES)!=0:
-        img=request.FILES['img']
+    img=request.FILES.get('img');
 
 
     # print(jobs,edu)
@@ -159,6 +158,7 @@ def editredirect(request,id):
     job_profile=request.POST['job-profile']
     
     skills=request.POST['skills'].split()
+    
 
     jobs={
         'employers':[],
@@ -191,8 +191,13 @@ def editredirect(request,id):
         edu['start'].append(request.POST[f'start-education-{i+1}'])
 
     
-    if len(request.FILES)!=0:
-        img=request.FILES['img']
+    # if len(request.FILES)!=0 and not res.image:
+    #     img=request.FILES['img']
+    #     res.image=img;
+
+    img=request.FILES.get('img');
+    if not img and res.image : 
+        img=res.image
 
     # print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
@@ -214,9 +219,9 @@ def editredirect(request,id):
     res.job_end=jobs['end']
     res.degrees=edu['degrees']
     res.institutions=edu['institutions']
+    res.image=img
     res.edu_start=edu['start']
     res.edu_end=edu['end']
-    res.image=img;
     res.save();
     response = redirect('resumes')
     return response

@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/resume.css' %}" />
+    <link
+      rel="icon"
+      href="{% static 'img/icons8-resume-32.png' %}"
+      type="image/x-icon"
+    />
     <title>Resume</title>
   </head>
   <body>
@@ -68,7 +73,7 @@
         <div class="left-col"><p style="font-weight: bold">ABOUT ME</p></div>
 
         <div class="right-col">
-          <p>{{resume_info.profile }}</p>
+          <p>{{resume_info.profile|linebreaks }}</p>
         </div>
       </div>
       {% endif %}
