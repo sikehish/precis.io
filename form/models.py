@@ -6,6 +6,7 @@ from datetime import datetime
 # Create your models here.
 class Resume(models.Model):
     title=models.CharField(max_length=30)
+    image = models.ImageField(upload_to='images',blank=True) 
     name= models.CharField(max_length=100)
     email= models.EmailField() 
     phone= models.CharField(max_length=14)

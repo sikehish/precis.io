@@ -11,36 +11,54 @@
   <body>
     {% for resume_info in resume %}
     <div class="resume">
-      {% if resume_info.name %}
+      <div class="left">
+        <div class="">
+          {% if resume_info.name %}
 
-      <h1>{{resume_info.name}}</h1>
+          <h1>{{resume_info.name}}</h1>
 
-      {% endif %} {% if resume_info.job_profile %}
+          {% endif %} {% if resume_info.job_profile %}
 
-      <p>💼 {{resume_info.job_profile}}</p>
+          <p>
+            💼
+            <span style="font-style: italic">{{resume_info.job_profile}}</span>
+          </p>
 
-      {% endif %} {% if resume_info.email %}
+          {% endif %} {% if resume_info.email %}
 
-      <p>📧 {{resume_info.email}}</p>
+          <p>📧 {{resume_info.email}}</p>
 
-      {% endif %} {% if resume_info.phone %}
+          {% endif %} {% if resume_info.phone %}
 
-      <p>📞 {{resume_info.phone}}</p>
+          <p>📞 {{resume_info.phone}}</p>
 
-      {% endif %} {% if resume_info.website %}
+          {% endif %} {% if resume_info.website %}
 
-      <p>
-        🔗
-        <a href="{{resume_info.website}}" target="_blank"
-          >{{resume_info.website}}</a
-        >
-      </p>
+          <p>
+            🔗
+            <a href="{{resume_info.website}}" target="_blank"
+              >{{resume_info.website}}</a
+            >
+          </p>
 
-      {% endif %} {% if resume_info.location %}
+          {% endif %} {% if resume_info.location %}
 
-      <p>📍 {{resume_info.location}}</p>
+          <p>📍 {{resume_info.location}}</p>
 
-      {% endif %}
+          {% endif %}
+        </div>
+
+        {% if resume_info.image %}
+
+        <img
+          class="profile-img"
+          src="{% get_media_prefix %}{{resume_info.image}}"
+          alt=""
+          srcset=""
+        />
+
+        {% endif %}
+      </div>
 
       <div class="line-break"></div>
 
@@ -53,7 +71,6 @@
           <p>{{resume_info.profile }}</p>
         </div>
       </div>
-
       {% endif %}
 
       <div class="resume-group">

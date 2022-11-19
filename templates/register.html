@@ -28,6 +28,8 @@
       {% if messages %} {% for message in messages %}
       <p class="{{message.tags}}">{{message}}</p>
       {% endfor %} {% endif %}
+      <a href="{% url 'login' %}" class="signup">Have an account?<span>Login</span></a>
+      
     </form>
   </body>
 </html>

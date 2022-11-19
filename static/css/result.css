@@ -6,7 +6,7 @@ body {
   margin: 0;
   background-color: rgb(242, 243, 245);
   box-sizing: border-box;
-  font-family: "Playfair Display", "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .start {
@@ -26,6 +26,7 @@ h1 {
 
 h1 {
   font-size: xx-large;
+  font-family: "Playfair Display", "Poppins";
 }
 
 .result {
@@ -63,4 +64,8 @@ button a {
 button:hover {
   background-color: #ffff19;
   color: #005eff;
+}
+
+a.bin {
+  text-decoration: none;
 }

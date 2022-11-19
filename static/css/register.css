@@ -46,3 +46,30 @@ button {
   text-align: center;
   color: red;
 }
+
+.signup {
+  text-align: center;
+  /* margin: 0 auto; */
+  /* text-decoration: none; */
+  font-size: small;
+  padding: 0;
+}
+
+/* a.signup {
+  text-decoration: none;
+}
+
+span {
+  text-decoration: dashed;
+} */
+
+.signup {
+  margin-top: 1rem;
+  font-size: smaller;
+  text-decoration: none;
+}
+
+.signup span {
+  color: #1100ff;
+  text-decoration: underline;
+}

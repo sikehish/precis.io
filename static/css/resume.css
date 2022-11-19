@@ -92,3 +92,16 @@ p {
 
   margin: 16px auto;
 }
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.left {
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -12,7 +12,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-bottom: 2rem;
+  padding: 1rem;
+  /* padding-bottom: 2rem; */
   border-bottom: 2px solid black;
 }
 
@@ -31,6 +32,7 @@ body {
   /* border: 2px solid red; */
   padding: 1rem;
   /* width: 70%; */
+  /* width: 80%; */
 }
 
 .form > div {
@@ -56,4 +58,27 @@ label {
 
 .work input {
   margin-right: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.choose-img {
+  display: table-cell;
+  /* display: block; */
+  background-color: rgb(0, 38, 255);
+  color: white;
+  font-size: smaller;
+  width: fit-content;
+  padding: 10px;
+}
+
+.choose-img:hover {
+  display: table-cell;
+  display: block;
+  background-color: white;
+  color: rgb(0, 38, 255);
+  font-size: smaller;
+  width: fit-content;
+  padding: 10px;
 }

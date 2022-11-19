@@ -3,6 +3,13 @@ from .models import Resume
 from django.contrib.auth.models import User
 # from django.http import HttpResponseNotFound
 
+from django.views.decorators.cache import cache_control
+
+@cache_control(no_cache=True, must_revalidate=True)
+def func():
+  #some code
+  return
+
 # Create your views here.
 
 def home(request):
@@ -58,17 +65,21 @@ def redirect_view(request):
         edu['end'].append(request.POST[f'end-education-{i+1}'])
         edu['start'].append(request.POST[f'start-education-{i+1}'])
 
+    if len(request.FILES)!=0:
+        img=request.FILES['img']
+
+
     # print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
     resume=Resume.objects.create(name=name, email=email,phone=phone,title=title, profile=profile, job_profile=job_profile,skills=skills,
     website=website,location=location, employers=jobs['employers'], titles=jobs['titles'],job_start=jobs['start'],job_end=jobs['end'],
-     degrees=edu['degrees'], institutions=edu['institutions'], edu_start=edu['start'],edu_end=edu['end'], uid=request.user);
+     degrees=edu['degrees'], institutions=edu['institutions'], edu_start=edu['start'],edu_end=edu['end'],image=img, uid=request.user);
     response = redirect('resumes')
     return response
     
 
 def form(request,pk=''):
-    print(request.user);
+    # print(request.user);
 
     # if not User.is_authenticated :
     #     return redirect('accounts/login')
@@ -76,25 +87,30 @@ def form(request,pk=''):
     if request.user.is_authenticated :
         if pk.strip()=='':
             return render(request,'formedit.html',{
-                'edit':False
+                'edit':False,
+                'image': False
             })
         else:
             print('pk:',pk)
             res=Resume.objects.get(id=pk)
+            print('image',res.image);
             if res.uid != request.user:
                 return redirect('')
             else:
                 el='\n'.join(res.skills)
-                print(el);
+                image=str(res.image).replace("images/", "");
                 return render(request,'formedit.html', {
                     'resume': res,
-                    'edit':True
+                    'edit':True,
+                    'image':image
         })
     else: 
         return redirect('login')
 
+
 def resume(request, pk):
     res=Resume.objects.filter(id=pk).values()
+    print('IMP, ',res[0]['image'])
     if len(res)==0 : return redirect('home')
     # print(res)
     # print(Resume.objects.filter(id=pk))
@@ -174,6 +190,10 @@ def editredirect(request,id):
         edu['end'].append(request.POST[f'end-education-{i+1}'])
         edu['start'].append(request.POST[f'start-education-{i+1}'])
 
+    
+    if len(request.FILES)!=0:
+        img=request.FILES['img']
+
     # print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
     res.name=name
@@ -196,6 +216,7 @@ def editredirect(request,id):
     res.institutions=edu['institutions']
     res.edu_start=edu['start']
     res.edu_end=edu['end']
+    res.image=img;
     res.save();
     response = redirect('resumes')
     return response

@@ -2,6 +2,9 @@ from django.urls import path, re_path
 from django.views.generic.base import RedirectView
 from . import views
 
+from django.views.decorators.cache import cache_control
+
+
 urlpatterns=[
     path('form/redirect', views.redirect_view, name='redirect'),
     path('form/', views.form, name="form"),

@@ -13,9 +13,9 @@
   <body>
     {% include "navbar.html" %}
     {% if edit %}
-    <form class="form" action='redirect-edit/{{resume.id}}' method="POST">
+    <form class="form" action='redirect-edit/{{resume.id}}' method="POST" enctype="multipart/form-data" >
       {% else %}
-      <form class="form" action='redirect' method="POST">
+      <form class="form" action='redirect' method="POST" enctype="multipart/form-data" >
     {% endif %}
       {% csrf_token %}
 
