@@ -36,7 +36,7 @@
 
   ![Create Resume form](./static/img/createResume.png)
 
-- 👀Now you can view your created resume in the "_Your Resumes_" section of the website.
+- 👀Now you can view your created resume in the "_Your Resumes_" section of the website, and can be shared with anyone.
 
   ![Resume page](./static/img/resume.png)
 
