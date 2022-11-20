@@ -6,7 +6,7 @@
 
 "**_precis_**" is the resume building website which can help you create your resume in no time. Just enter your required details and get the precise resume ready to leap in the carrier. The **_precis_** empowers you to easily create your job-winning online resume, showcase your academic publications.
 
-![Alt text](./static/img/homepage.png)
+![Home Page](./static/img/homepage.png)
 
 <span style="font-family:Times New Roman">**Create your resume using [precis.io]()** </span>
 
@@ -34,17 +34,17 @@
 
 - 📚Go to create resume and fill the required details in the input form. Once you fill up all the required details,submit the resume.
 
-![Create Resume form](./static/img/createResume.png)
+  ![Create Resume form](./static/img/createResume.png)
 
 - 👀Now you can view your created resume in the "_Your Resumes_" section of the website.
 
-![Resume page](./static/img/resume.png)
+  ![Resume page](./static/img/resume.png)
 
 <span style="color:violet">STEPS TO EDIT OR DELETE THE RESUME</span>
 
 - 📝Go to "_Your Resumes_" section of the website.
 
-![Your resumes page](./static/img/yourResumes.png)
+  ![Your resumes page](./static/img/yourResumes.png)
 
 - ⬆️There you can see the Resumes which you have already created where in you have edit ✏️ to edit your resume and delete 🗑 to delete the Resume from your dashboard
 
