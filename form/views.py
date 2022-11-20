@@ -32,8 +32,6 @@ def redirect_view(request):
     profile=request.POST['profile']
     location=request.POST['location']
     job_profile=request.POST['job-profile']
-    
-    skills=request.POST['skills'].split()
 
     jobs={
         'employers':[],
@@ -66,7 +64,8 @@ def redirect_view(request):
         edu['start'].append(request.POST[f'start-education-{i+1}'])
 
     img=request.FILES.get('img');
-
+    skills=request.POST['skills'].splitlines()
+    skills = filter(lambda x: x!="", skills)
 
     # print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
@@ -96,7 +95,6 @@ def form(request,pk=''):
             if res.uid != request.user:
                 return redirect('')
             else:
-                el='\n'.join(res.skills)
                 image=str(res.image).replace("images/", "");
                 return render(request,'formedit.html', {
                     'resume': res,
@@ -116,7 +114,6 @@ def resume(request, pk):
     return render(request,'resume.html', {
         'resume': res
     })
-    
 
 def resumes(request):
     print(request.user)
@@ -156,8 +153,18 @@ def editredirect(request,id):
     profile=request.POST['profile']
     location=request.POST['location']
     job_profile=request.POST['job-profile']
+
     
-    skills=request.POST['skills'].split()
+    # def func(ele):
+    #     if ele!="":
+    #         return True;
+    #     else: return False;
+    skills=request.POST['skills'].splitlines()
+    skills=[i for i in skills if i]
+    print(skills)
+    # skills = filter(func, sk)
+    # print('111111111111 ',list(finalSkills))
+    # print('Hulu ',skills)
     
 
     jobs={
