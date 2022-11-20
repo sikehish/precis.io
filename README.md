@@ -44,7 +44,7 @@
 
 - 📝Go to "_Your Resumes_" section of the website.
 
-![Your resumes page](./static/img/yourResumesx.png)
+![Your resumes page](./static/img/yourResumes.png)
 
 - ⬆️There you can see the Resumes which you have already created where in you have edit ✏️ to edit your resume and delete 🗑 to delete the Resume from your dashboard
 
