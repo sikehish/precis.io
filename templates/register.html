@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <script defer src="{% static 'js/login.js' %}"></script>
     <link rel="icon" href="{% static 'img/icons8-resume-32.png' %}" type="image/x-icon">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  />
+    <script defer src="{% static 'js/login.js' %}"></script>
     <title>Sign Up</title>
   </head>
   <body>
@@ -19,13 +23,21 @@
       <span>Email</span>
       <input type="email" name="email" required />
       <span>Password</span>
-      <input type="password" name="password1" required />
+      <div>
+        <input type="password" name="password1" class="id_password" required />
+        <i
+          class="far fa-eye togglePassword"
+          style="margin-left: -30px; cursor: pointer"
+        ></i>
+      </div>
       <span>Confirm Password</span>
-      <input
-        type="password"
-        name="password2"
-        required
-      />
+      <div>
+        <input type="password" name="password2" class="id_password" required />
+        <i
+          class="far fa-eye togglePassword"
+          style="margin-left: -30px; cursor: pointer"
+        ></i>
+      </div>
       <button type="submit">Register</button>
       {% if messages %} {% for message in messages %}
       <p class="{{message.tags}}">{{message}}</p>

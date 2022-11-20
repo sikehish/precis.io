@@ -41,9 +41,10 @@ button {
   margin-bottom: 1rem;
 }
 
-/* #id_password {
-  background-color: black;
-} */
+input {
+  /* margin: 0 auto; */
+  width: 98%;
+}
 
 .error {
   font-size: smaller;
@@ -69,12 +70,17 @@ span {
 } */
 
 .signup {
+  text-align: center;
+  color: rgb(65, 65, 65);
   margin-top: 1rem;
   font-size: smaller;
   text-decoration: none;
+  padding: 0;
 }
 
 .signup span {
+  display: inline;
+  margin: 5px;
   color: #1100ff;
   text-decoration: underline;
 }

@@ -45,7 +45,10 @@ def login(request):
             auth.login(request,user)
             return redirect('/')
         else:
-            messages.error(request,'Invalid credentials')
+            try:
+                if User.objects.get(username=email): messages.error(request,'Incorrect Password')             
+            except:
+                messages.error(request,"Email doesn't exist")
             return redirect('login')
     else:
         return render(request,'login.html')

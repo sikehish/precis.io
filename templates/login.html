@@ -26,14 +26,13 @@
       <span>Email</span>
       <input type="email" name="email" required />
       <span>Password</span>
-      <!-- <div> -->
-      <input type="password" name="password" id="id_password" required />
-      <!-- <i
-          class="far fa-eye"
-          id="togglePassword"
+      <div>
+        <input type="password" name="password" class="id_password" required />
+        <i
+          class="far fa-eye togglePassword"
           style="margin-left: -30px; cursor: pointer"
-        ></i> -->
-      <!-- </div> -->
+        ></i>
+      </div>
       <button type="submit">Login</button>
       {% if messages %} {% for message in messages %}
       <p class="{{message.tags}}">{{message}}</p>

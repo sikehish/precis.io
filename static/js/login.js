@@ -1,14 +1,16 @@
-// const togglePassword = document.querySelector("#togglePassword");
-// const password = document.querySelector("#id_password");
+const togglePassword = document.querySelectorAll(".togglePassword");
+// const password = document.querySelectorAll(".id_password");
 
-// togglePassword.addEventListener("click", function (e) {
-//   // toggle the type attribute
-//   const type =
-//     password.getAttribute("type") === "password" ? "text" : "password";
-//   password.setAttribute("type", type);
-//   // toggle the eye slash icon
-//   this.classList.toggle("fa-eye-slash");
-// });
+togglePassword.forEach((el) => {
+  el.addEventListener("click", function (e) {
+    const ele = el.previousElementSibling;
+    const type = ele.getAttribute("type") === "password" ? "text" : "password";
+    ele.setAttribute("type", type);
+
+    // toggle the eye slash icon
+    this.classList.toggle("fa-eye-slash");
+  });
+});
 
 document.querySelectorAll("input").forEach((el) => {
   el.setAttribute("autocomplete", "off");
