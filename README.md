@@ -28,7 +28,9 @@
 - 👉Register to the website through your email address
 
 - 👇Log in to the website through your credentials
+
   ![Alt text](./static/img/login.png)
+
 - 📚Go to create resume and fill the required details in the input form. Once you fill up all the required details,submit the resume.
 
 ![Alt text](./static/img/createResume.png)
