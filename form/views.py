@@ -65,7 +65,7 @@ def redirect_view(request):
 
     img=request.FILES.get('img');
     skills=request.POST['skills'].splitlines()
-    skills = filter(lambda x: x!="", skills)
+    skills=[i for i in skills if i]
 
     # print(jobs,edu)
     # resume=Resume.objects.create(name=name, email=email,phone=phone,title=title);
